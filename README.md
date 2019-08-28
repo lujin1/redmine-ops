@@ -1,8 +1,10 @@
 # redmine-ops
-自动回复redmine工单   
+自动回复redmine工单系统   
+---------
 api list:
 ![swagger](img/swagger.jpg)
 
+----------
 api传参说明：  
 
 参数|说明
