@@ -4,6 +4,7 @@ api list:
 ![swagger](img/swagger.jpg)
 
 api传参说明：  
+
 参数|说明
 --|:--:
 redminename|redmine中assigned_to的name,如"Lu jin"
