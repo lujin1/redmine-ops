@@ -20,9 +20,7 @@ scheduler = APScheduler()
 scheduler.init_app(app)
 
 job_api = Blueprint('job_api', __name__, url_prefix = '/job')
-
 redmine_api = Blueprint('redmine_api', __name__, url_prefix = '/redmine')
-
 
 @job_api.route('/', methods=['GET'])
 def getJobs():
@@ -151,7 +149,6 @@ def deleteJob():
         }
         return Response(json.dumps(msg), content_type='application/json')
 
-
 @redmine_api.route('/', methods=['POST'])
 def redmine():
     """
@@ -212,5 +209,4 @@ def redmine():
             }
             return Response(json.dumps(msg), content_type='application/json',status=401)
     except Exception as e:
-
         return Response(str(e))
