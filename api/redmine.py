@@ -20,10 +20,8 @@ def Reply_redmine (username, password, name, notes):
     auth = auth_redmine(username, password)
     app.logger.info("auth is" + auth)
     if auth == "ok":
-        routine_id = list(redmine.issue.all(limit=100).filter(project__id=36, assigned_to__name=name, status__name='New').values('id'))
-
-        all_id = list(redmine.issue.all(limit=100).filter(assigned_to__name=name, status__name='New').values('id'))
-
+        routine_id = list(redmine.issue.all(limit=10).filter(project__id=36, assigned_to__name=name, status__name='New').values('id'))
+        all_id = list(redmine.issue.all(limit=10).filter(assigned_to__name=name, status__name='New').values('id'))
         issue_list = []
         if all_id:
             for id in all_id:

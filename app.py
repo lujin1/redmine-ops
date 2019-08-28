@@ -10,7 +10,7 @@ app.register_blueprint(redmine_api)
 Swagger(app)
 
 app.config['BASIC_AUTH_USERNAME'] = 'admin'
-app.config['BASIC_AUTH_PASSWORD'] = os.getenv('PASSWORD')
+app.config['BASIC_AUTH_PASSWORD'] = '111111'
 
 app.config['BASIC_AUTH_FORCE'] = True  # 整个站点都验证
 
@@ -19,3 +19,4 @@ basic_auth = BasicAuth(app)
 if __name__ == '__main__':
     scheduler.start()
     app.run(host='0.0.0.0')
+

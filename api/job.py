@@ -53,11 +53,16 @@ def addJob():
         schema:
           id: job
           required:
-            - username
+            - redminename
+              username
               password
               job_id
               time
           properties:
+            redminename:
+              type: string
+              description: The redmine's name.
+              default: "Lu jin"
             username:
               type: string
               description: The redmine's username.
@@ -85,7 +90,7 @@ def addJob():
     try:
         username = request.json['username']
         password = request.json['password']
-        name = username.split('@')[1].replace(".", "")
+        name = request.json['redminename']
         notes = request.json['notes']
         args = (username, password, name, notes)
         job_id = request.json['job_id']
@@ -110,9 +115,8 @@ def addJob():
     except Exception as e:
         msg = {
             "status": "failed",
-            "job_id": job_id,
             "action": "add job",
-            "error": e
+            "error": str(e)
         }
         return Response(json.dumps(msg), content_type='application/json', status=400)
 
@@ -163,9 +167,14 @@ def redmine():
         schema:
           id: Redmine
           required:
-            - username
+            - redminename
+              username
               password
           properties:
+            redminename:
+              type: string
+              description: The redmine's name.
+              default: "Lu jin"
             username:
               type: string
               description: The redmine's username.
@@ -186,7 +195,7 @@ def redmine():
         username = request.json['username']
         password = request.json['password']
         notes = request.json['notes']
-        name = username.split('@')[1].replace(".", "")
+        name = request.json['redminename']
         status, issue_list = Reply_redmine(username, password, name, notes)
         issue_list_str = str(issue_list)
 
