@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redmine-ops
+  labels:
+    app: redmine-ops
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redmine-ops
+  template:
+    metadata:
+      labels:
+        app: redmine-ops
+    spec:
+      containers:
+      - name: redmine-ops
+        image: harbor/library/redmine:v4
+        env:
+        - name: PASSWORD
+          value: "123456"
