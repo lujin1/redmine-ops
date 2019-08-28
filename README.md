@@ -1,5 +1,7 @@
 # redmine-ops
 自动回复redmine工单系统   
+- /job 为定时轮询回复
+- /redmine 为一次行调用
 ---------
 api list:
 ![swagger](img/swagger.jpg)
