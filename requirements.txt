@@ -1,5 +1,5 @@
 flasgger==0.9.3
 python_redmine==2.2.1
-Flask==1.1.1
+Flask==2.3.2
 Flask_APScheduler==1.11.0
 Flask_BasicAuth==0.2.0
